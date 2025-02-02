@@ -1,8 +1,23 @@
 answer = 5
-user_input=input("ENTER YOUR NUMBER: ")
-if type(user_input) != int:
-    print("user input must be interger")
-if user_input == answer:
-    print("you won")
-else:
-    print("you lost")
+attempts = 2
+
+while True:
+    user_input = input("Guess the Number: ")
+    if int(user_input) == answer:
+        print("You Won!")
+        break
+    elif int(user_input) != answer:
+        if attempts != 0:
+            print(f"Match Failed, try again {attempts} attempts left.")
+            attempts -= 1
+        else:
+            print("You Lost!")
+            break
+    else:
+        print("Invalid Input, Enter numbers only.")
+        if attempts != 0:
+            print("Try again, {attempts} attempts left.")
+            attempts -= 1
+        else:
+            print("You Lost")
+            break
